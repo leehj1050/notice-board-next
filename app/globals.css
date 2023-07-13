@@ -7,3 +7,68 @@ main {
 .title {
   width: 70%;
 }
+.table {
+  border-style: outset;
+  width: 100%;
+}
+.tableHead {
+  border-bottom: 2px solid lightgray;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0.5em;
+  background-color: #1e82cd;
+  color: white;
+  margin-bottom: 0;
+}
+.contentList {
+  list-style: none;
+  padding: 0.3em;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+}
+/*
+글쓰기 페이지
+*/
+
+.writeForm {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+}
+.userTitle,
+.userName,
+.userText {
+  width: 100%;
+  padding: 0.7em;
+  margin-bottom: 1em;
+  border-bottom: 1px dashed lightslategray;
+}
+.writeForm label {
+  font-size: 25px;
+  margin-right: 1em;
+}
+.writeForm input {
+  width: 80%;
+  padding: 0.3em;
+  font-size: 20px;
+}
+.text label {
+  position: relative;
+  bottom: 10em;
+}
+.userContents {
+  width: 80%;
+  height: 500px;
+  resize: none;
+  font-size: 20px;
+  padding: 0.3em;
+}
+.button {
+  display: flex;
+  justify-content: center;
+}
+.button .successBtn {
+  margin-right: 1em;
+}

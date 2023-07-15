@@ -1,6 +1,10 @@
 main {
   padding: 5em;
 }
+a {
+  color: black;
+  text-decoration: none;
+}
 .number .writer .date {
   width: 10%;
 }
@@ -54,7 +58,7 @@ main {
   padding: 0.3em;
   font-size: 20px;
 }
-.text label {
+.userText label {
   position: relative;
   bottom: 10em;
 }

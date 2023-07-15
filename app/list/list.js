@@ -1,28 +1,25 @@
 "use client";
 
-import { db } from "@/utils/firebaseDB";
 import Link from "next/link";
-import { collection, getDocs, orderBy, query } from "firebase/firestore/lite";
 import { useEffect, useState } from "react";
+import Spinner from "react-bootstrap/Spinner";
 
 export default function List() {
   const [getData, setGetData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   //
   useEffect(() => {
-    const fetchData = async () => {
-      const post = collection(db, "post");
-      const querySnapshot = await getDocs(
-        query(post, orderBy("timestamp", "desc"))
-      );
-
-      setGetData(
-        querySnapshot.docs.map((res) => ({ ...res.data(), id: res.id }))
-      );
+    const getDataList = async () => {
+      await fetch("/api/post/list")
+        .then((res) => res.json())
+        .then((data) => setGetData(data))
+        .then((suc) => setLoading(true));
     };
-
-    fetchData();
+    getDataList();
   }, []);
+
+  console.log(loading);
 
   return (
     <div className="table">
@@ -32,18 +29,29 @@ export default function List() {
         <li className="writer">글쓴이</li>
         <li className="date">작성일</li>
       </ul>
-      {getData.map((item, idx) => {
-        return (
-          <Link href="#" key={idx}>
-            <ul className="contentList">
-              <li className="number">{idx + 1}</li>
-              <li className="title">{item.userTitle}</li>
-              <li className="writer">{item.userName}</li>
-              <li className="date">{item.userDate}</li>
-            </ul>
-          </Link>
-        );
-      })}
+      {loading ? (
+        getData.map((item, idx) => {
+          return (
+            <Link href={`/detail/${item.id}`} key={idx}>
+              <ul className="contentList">
+                <li className="number">{idx + 1}</li>
+                <li className="title">{item.userTitle}</li>
+                <li className="writer">{item.userName}</li>
+                <li className="date">{item.userDate}</li>
+              </ul>
+            </Link>
+          );
+        })
+      ) : (
+        <Spinner animation="border" variant="primary" className="spinner" />
+      )}
     </div>
   );
 }
+
+// setGetData(
+//   querySnapshot.docs.map((res) => ({
+//     ...res.data(),
+//     id: res.id,
+//   }))
+// );

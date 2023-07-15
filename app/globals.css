@@ -31,7 +31,13 @@ a {
   display: flex;
   justify-content: space-around;
   margin: 0;
+  border-bottom: 1px solid gray;
 }
+.contentList:hover {
+  background-color: lightgray;
+  color: black;
+}
+
 /*
 글쓰기 페이지
 */
@@ -75,4 +81,12 @@ a {
 }
 .button .successBtn {
   margin-right: 1em;
+}
+/*
+spinner
+*/
+.spinner {
+  padding: 2em;
+  position: relative;
+  left: 25em;
 }

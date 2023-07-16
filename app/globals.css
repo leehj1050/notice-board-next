@@ -41,7 +41,6 @@ a {
 /*
 글쓰기 페이지
 */
-
 .writeForm {
   display: flex;
   flex-direction: column;
@@ -79,9 +78,12 @@ a {
   display: flex;
   justify-content: center;
 }
-.button .successBtn {
+.button .successBtn,
+.button .goList,
+.button .goEdit {
   margin-right: 1em;
 }
+
 /*
 spinner
 */

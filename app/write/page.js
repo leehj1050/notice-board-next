@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
@@ -110,9 +111,9 @@ export default function Write() {
           >
             작성
           </Button>
-          <Button variant="danger" className="cancelBtn">
-            취소
-          </Button>
+          <Link href="/">
+            <Button variant="danger">취소</Button>
+          </Link>
         </div>
       </form>
     </main>

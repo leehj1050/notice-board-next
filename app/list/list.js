@@ -19,8 +19,6 @@ export default function List() {
     getDataList();
   }, []);
 
-  console.log(loading);
-
   return (
     <div className="table">
       <ul className="tableHead">

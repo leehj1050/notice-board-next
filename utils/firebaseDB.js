@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore/lite";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDOadOSAx_4PcohgKYnQ7ASbe4Uduhhe9s",
-  authDomain: "notice-board-nexjs.firebaseapp.com",
-  projectId: "notice-board-nexjs",
-  storageBucket: "notice-board-nexjs.appspot.com",
-  messagingSenderId: "77366910856",
-  appId: "1:77366910856:web:5973bd5386c118265e243d",
-  measurementId: "G-YCM0Y7W1JK",
+  apiKey: process.env.NEXT_PUBLIC_APIKEY,
+  authDomain: process.env.NEXT_PUBLIC_AUTHDOMAIN,
+  projectId: process.env.NEXT_PUBLIC_PROJECTID,
+  storageBucket: process.env.NEXT_PUBLIC_STORAGEBUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_MESSAGINSENDERID,
+  appId: process.env.NEXT_PUBLIC_APPID,
+  measurementId: process.env.NEXT_PUBLIC_MESUREMENID,
 };
 
 const app = initializeApp(firebaseConfig);

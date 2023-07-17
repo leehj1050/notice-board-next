@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Button, Spinner } from "react-bootstrap";
 
 export default function Detail(props) {
+  const router = useRouter();
   const [postItem, setPostItem] = useState([]);
   const [loading, setLoading] = useState(false);
   //
@@ -20,7 +22,11 @@ export default function Detail(props) {
 
   //handleDelete
   const handleDelete = () => {
-    fetch(`/api/post/delete?id=${id}`);
+    fetch(`/api/post/delete?id=${id}`)
+      .then((res) => res.json())
+      .then((msg) => {
+        alert(msg), router.push("/");
+      });
   };
 
   return (
